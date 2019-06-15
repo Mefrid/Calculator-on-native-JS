@@ -17,7 +17,7 @@ MainLine.textContent.length = 1;
 for(let i = 0; i < Numbers.length; ++i)
 {
     Numbers[i].addEventListener("click", (e) => {
-        if(MainLine.textContent.length >=13) return;
+        if(MainLine.textContent.length >=13 || MainLine.textContent.includes('NaN') || MainLine.textContent.includes('Infinity')) return;
         if (MainLine.textContent == 0 && MainLine.textContent.length == 1)
 	    {
             if(e.target.textContent == 0)
@@ -88,6 +88,7 @@ ClearE.addEventListener('click', (e) => {
 });
 
 Equals.addEventListener('click', (e) => {
+    if(MainLine.textContent.includes('NaN') || MainLine.textContent.includes('Infinity')) return;
     if(MainLine.textContent.charAt(MainLine.textContent.length - 1) == '.')
         {
             MainLine.textContent = MainLine.textContent.slice(0, MainLine.textContent.length - 1);
@@ -129,7 +130,7 @@ Back.addEventListener('click', (e) => {
 });
 
 ChangeSign.addEventListener('click', (e) => {
-    if(MainLine.textContent == 0) return;
+    if(MainLine.textContent == 0 || MainLine.textContent.includes('NaN') || MainLine.textContent.includes('Infinity')) return;
     if(MainLine.textContent.charAt(0) == '-')
     {
         MainLine.textContent = MainLine.textContent.slice(1);
@@ -151,6 +152,7 @@ Sqrt.addEventListener('click', (e) => {
 
 Point.addEventListener('click', (e) => {
     for(let char of MainLine.textContent) if(char == '.') return;
+    if(MainLine.textContent.includes('NaN') || MainLine.textContent.includes('Infinity')) return;
     MainLine.textContent += e.target.textContent;
     MainLine.textContent = MainLine.textContent.replace(/\s+/g, '');
 });
