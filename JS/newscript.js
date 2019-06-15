@@ -43,6 +43,10 @@ for(let i = 0; i < Operations.length; ++i)
         if(MainLine.textContent.charAt(MainLine.textContent.length - 1) == '.')
         {
             MainLine.textContent = MainLine.textContent.slice(0, MainLine.textContent.length - 1);
+            SubLine.textContent += MainLine.textContent;
+            SubLine.textContent += e.target.textContent;
+            SubLine.textContent = SubLine.textContent.replace(/\s+/g, '');
+            MainLine.textContent = 0;      
         }
         else if(MainLine.textContent.charAt(0) == '-')
         {
