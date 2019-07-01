@@ -76,3 +76,21 @@
 #Zero {
 	grid-column: 1/3;
 }
+
+/* For small devices */
+@media screen and (max-width: 640px) {
+	.Calculator {
+		width: 80%;
+		height: 80%;
+		font-size: 30px;
+	}
+	.button:active {
+		font-size: 25px;
+	}
+	#Field {
+		font-size: 45px;
+	}
+	#sub-line {
+		font-size: 26px;
+	}
+}
